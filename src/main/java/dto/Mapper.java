@@ -1,8 +1,6 @@
 package dto;
 
 
-
-
 import jakarta.enterprise.context.ApplicationScoped;
 import model.Branch;
 import model.Commit;

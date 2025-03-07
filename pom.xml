@@ -62,7 +62,22 @@
                 <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-resteasy-jackson</artifactId>
             </dependency>
-        </dependencies>
+
+        <dependency>
+            <groupId>io.quarkiverse.wiremock</groupId>
+            <artifactId>quarkus-wiremock-test</artifactId>
+            <version>1.4.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
 
 
 
