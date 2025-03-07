@@ -13,14 +13,15 @@ class GithubServicesTestTest {
     @Test
     void testGetUserRepositoriesSuccessJson() {
 
-
-
-
         String username = "octocat";
 
 
-        given().accept("application/json").when().get("/repositories/" + username).then().statusCode(200);
-        // .body(is(Response.jsonData));
+        given().pathParams("username", username)
+                .when().get("/repositories/{username}")
+                .then().statusCode(200);
+
+
+
     }
 
 
