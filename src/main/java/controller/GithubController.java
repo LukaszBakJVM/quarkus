@@ -1,7 +1,9 @@
 package controller;
 
 
+import dto.RepositoryDto;
 import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -21,7 +23,7 @@ public class GithubController {
     @GET
     @Path("/{username}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Multi<Repository> getRepositories(@PathParam("username") String username) {
+    public Multi<Uni<RepositoryDto>>getRepositories(@PathParam("username") String username) {
         return services.eee(username);
     }
 }

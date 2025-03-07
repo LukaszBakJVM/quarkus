@@ -16,7 +16,7 @@ public interface GitHubClient {
 
     @GET
     @Path("/users/{username}/repos")
-    Uni<List<Repository>> getRepositories(@PathParam("username") String username, @QueryParam("type") String type);
+    Uni<List<Repository>> getRepositories(@PathParam("username") String username);
 
     @GET
     @Path("/repos/{owner}/{repo}/branches")
