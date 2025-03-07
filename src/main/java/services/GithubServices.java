@@ -8,7 +8,6 @@ import io.smallrye.mutiny.unchecked.Unchecked;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.Response;
 import model.Branch;
 import model.Repository;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -30,7 +29,7 @@ public class GithubServices {
     public Multi<RepositoryDto> getUserRepositories(String user) {
         return gitHubClient.getRepositories(user).onItem().transformToMulti(Unchecked.function(repos -> {
             if (repos.isEmpty()) {
-                throw new WebApplicationException("User not found", Response.Status.NOT_FOUND);
+                throw new WebApplicationException();
             }
             return Multi.createFrom().iterable(repos).filter(repository -> !repository.fork()).onItem().transformToUniAndConcatenate(repository -> this.getBranchesForRepository(user, repository.name()).map(branches -> mapper.fromRepositoryToDto(new Repository(repository.name(), repository.owner(), repository.fork(), branches))));
 
