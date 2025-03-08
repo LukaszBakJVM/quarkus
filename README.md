@@ -1,66 +1,59 @@
-# github
+GitHub repositories searcher
+This is GitHub repositories searcher
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Tech Stack
+Language: Java 21
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+Frameworks: Spring Boot 3.1.3
 
-## Running the application in dev mode
+Build tool: Maven
 
-You can run your application in dev mode that enables live coding using:
+APIs: GitHub API
 
-```shell script
-./mvnw quarkus:dev
-```
+UI: REST API
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+API Reference
+Get all repos which are not forks, with branches by username
+http GET /repositories/{username}/fork=false
 
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
-```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/github-1.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- Mutiny ([guide](https://quarkus.io/guides/mutiny-primer)): Write reactive applications with the modern Reactive
-  Programming library Mutiny
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and
-  Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on
-  it.
-- RESTEasy Classic's REST Client Mutiny support ([guide](https://quarkus.io/guides/resteasy-client)): Enable Mutiny for
-  the REST client
-- RESTEasy Classic Mutiny ([guide](https://quarkus.io/guides/resteasy#reactive)): Mutiny support for RESTEasy Classic
-  server
+Parameter	Type	Description
+username	string	Required
+Example response
+[{
+  "name": "DailyCodingProblemProblem35Hard",
+  "owner": {
+    "login": "LukaszBakJVM"
+  },
+  "fork": false,
+  "branches": [
+    {
+      "name": "master",
+      "commit": {
+        "sha": "9ca302f081e8ed3d36af75db862d6fa6cd34219c"
+      }
+    }
+  ]
+},
+  [,{
+    "name": "DailyCodingProblemProblem-88-Medium",
+    "owner": {
+      "login": "LukaszBakJVM"
+    },
+    "fork": false,
+    "branches": [
+      {
+        "name": "master",
+        "commit": {
+          "sha": "5ffc46d75247051049389f0e33135f91e6758b3a"
+        }
+      }
+    ]
+  
+,
+  
+Errors
+1.Case user not found :
+{
+  "status" : "404 Not Found",
+  "message" : "User {username} not found"
+}
