@@ -1,24 +1,38 @@
-GitHub repositories searcher
+# GitHub repositories searcher
+
 This is GitHub repositories searcher
 
-Tech Stack
-Language: Java 21
 
-Frameworks: Spring Boot 3.1.3
+## Tech Stack
 
-Build tool: Maven
+**Language:** Java 
 
-APIs: GitHub API
+**Frameworks:** Quarkus
 
-UI: REST API
+**Build tool:** Maven
 
-API Reference
-Get all repos which are not forks, with branches by username
-http GET /repositories/{username}/fork=false
+**APIs:** GitHub API
 
-Parameter	Type	Description
-username	string	Required
-Example response
+**UI:** REST API
+
+
+
+
+## API Reference
+
+#### Get all repos which are not forks, with branches by username
+http
+GET /repositories/{username}
+
+
+| Parameter  | Type     | Description                |
+|:-----------| :------- | :------------------------- |
+| `username` | `string` | **Required** |
+
+
+## Example response
+
+```json
 [{
   "name": "DailyCodingProblemProblem35Hard",
   "owner": {
@@ -49,11 +63,19 @@ Example response
       }
     ]
   
-,
+
   
-Errors
-1.Case user not found :
+```
+}
+## Errors
+
+### 1.Case user not found :
+
+```json
 {
   "status" : "404 Not Found",
-  "message" : "User {username} not found"
+  "message" : "User  not found"
 }
+```
+
+
