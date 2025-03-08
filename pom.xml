@@ -51,17 +51,17 @@
             <scope>test</scope>
         </dependency>
 
-            <!-- Zależność Quarkus RESTEasy do obsługi JAX-RS -->
-            <dependency>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-resteasy</artifactId>
-            </dependency>
 
-            <!-- Opcjonalnie: Obsługa JSON za pomocą Jackson (standard do przetwarzania JSON w Quarkusie) -->
-            <dependency>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-resteasy-jackson</artifactId>
-            </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.quarkiverse.wiremock</groupId>
@@ -75,10 +75,14 @@
             <version>5.5.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
 
 
     </dependencies>
-
 
 
     <build>

@@ -15,7 +15,8 @@ import services.GithubServices;
 @Path("/repositories")
 public class GithubController {
 
-   private final GithubServices services;
+    private final GithubServices services;
+
     @Inject
     public GithubController(GithubServices services) {
         this.services = services;
