@@ -31,7 +31,7 @@ public class GithubServices {
             if (repos.isEmpty()) {
                 throw new WebApplicationException();
             }
-            return Multi.createFrom().iterable(repos).filter(repository -> !repository.fork()).onItem().transformToUniAndConcatenate(repository -> this.getBranchesForRepository(user, repository.name()).map(branches -> mapper.fromRepositoryToDto(new Repository(repository.name(), repository.owner(), repository.fork(), branches))));
+            return Multi.createFrom().iterable(repos).filter(repository -> !repository.fork()).onItem().transformToUniAndMerge(repository -> this.getBranchesForRepository(user, repository.name()).map(branches -> mapper.fromRepositoryToDto(new Repository(repository.name(), repository.owner(), repository.fork(), branches))));
 
         }));
     }
