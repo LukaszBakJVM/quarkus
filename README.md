@@ -73,8 +73,8 @@ GET /repositories/{username}
 
 ```json
 {
-  "status" : "404 Not Found",
-  "message" : "User  not found"
+    "status": 404,
+    "message": "User not found"
 }
 ```
 
