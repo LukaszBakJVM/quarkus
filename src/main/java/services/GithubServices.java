@@ -28,6 +28,7 @@ public class GithubServices {
 
     public Multi<RepositoryDto> getUserRepositories(String user) {
         return gitHubClient.getRepositories(user).onItem().transformToMulti(Unchecked.function(repos -> {
+
             if (repos.isEmpty()) {
                 throw new WebApplicationException();
             }
